@@ -1,0 +1,23 @@
+name: build-envoy-static
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+    - name: add bazel source
+      run: echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+    - name: add bazel key
+      run: curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
+    - name: install bazel
+      run: sudo apt-get update && sudo apt-get install bazel
+    - name: install glib2.0
+      run: sudo apt-get install libglib2.0-dev
+    - name: install emsdk
+      run: git clone https://github.com/emscripten-core/emsdk.git && cd emsdk && ./emsdk install latest && ./emsdk activate latest && . ./emsdk_env.sh && cd -
+    - name: install llvm
+      run: bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
