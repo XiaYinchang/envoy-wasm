@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - nmae: check cpu
+      run: lscpu
+    - name: check memory
+      run: free -g
     - uses: actions/checkout@master
     - name: add bazel source
       run: echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
