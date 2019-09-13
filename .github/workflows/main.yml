@@ -25,3 +25,5 @@ jobs:
       run: wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
     - name: install llvm
       run: sudo apt-get install clang-8
+    - name: install protobuf
+      run: sudo apt install protobuf-compiler
