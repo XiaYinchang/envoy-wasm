@@ -19,5 +19,9 @@ jobs:
       run: sudo apt-get install libglib2.0-dev
     - name: install emsdk
       run: git clone https://github.com/emscripten-core/emsdk.git && cd emsdk && ./emsdk install latest && ./emsdk activate latest && . ./emsdk_env.sh && cd -
+    - name: add llvm repo
+      run: cho "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-8 main" | sudo tee /etc/apt/sources.list.d/llvm.list
+    - name: add llvm key
+      run: wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
     - name: install llvm
-      run: sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+      run: sudo -y apt-install clang-8 lldb-8 lld-8 clangd-8 llvm-8-dev
