@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - nmae: check cpu
+    - name: check cpu
       run: lscpu
     - name: check memory
       run: free -g
