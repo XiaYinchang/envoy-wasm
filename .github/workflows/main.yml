@@ -24,4 +24,4 @@ jobs:
     - name: add llvm key
       run: wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
     - name: install llvm
-      run: sudo -y apt-install clang-8 lldb-8 lld-8 clangd-8 llvm-8-dev
+      run: sudo apt-get install clang-8 lldb-8 lld-8 clangd-8 llvm-8-dev
