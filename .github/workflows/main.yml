@@ -26,4 +26,4 @@ jobs:
     - name: install llvm
       run: sudo apt-get install clang-8
     - name: install protobuf
-      run: git clone https://github.com/protocolbuffers/protobuf && cd protobuf && git checkout v3.6.1 && git submodule update --init --recursive && ./autogen.sh && ./configure && make && make check && sudo make install && cd -
+      run: export CC=clang && export CXX=clang++ && git clone https://github.com/protocolbuffers/protobuf && cd protobuf && git checkout v3.6.1 && git submodule update --init --recursive && ./autogen.sh && ./configure && make && make check && sudo make install && cd -
