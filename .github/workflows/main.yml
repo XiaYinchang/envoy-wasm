@@ -26,4 +26,4 @@ jobs:
     - name: install llvm
       run: sudo apt-get install clang-8
     - name: install protobuf
-      run: sudo apt install protobuf-compiler
+      run: sudo apt install protobuf
